@@ -1,0 +1,163 @@
+#Figura 18
+class BTreeNo
+{
+    private int valor;
+    private BTreeNo esq;
+    private BTreeNo dir;
+
+    BTreeNo(int valor)
+    {
+        this.valor _ valor;
+    }
+}
+{
+public void setValor(int valor). . .
+public void setEsq(BTreeNo esq). . .
+public void setDir(BTreeNo dir). . .
+public int getValor(). . .
+public BTreeNo getEsq(). . .
+public BTreeNo getDir(). . .
+}
+class Btree
+{
+    private BTreeNo raiz;
+
+    private BTreeNo inserir(BTreeNo arvore, int novo)
+    {
+        BTree aux = null;
+        if (arvore -- null)
+        {
+            aux.setValor(novo);
+            return aux;
+        }
+        else if (novo < arvore.getValor())
+             arvore.setEsq(inserir(arvore.getEsq(), novo));
+        else
+             arvore.setDir(inserir(arvore.getDir(), novo));
+        
+        return arvore;
+    }
+    public void inserirNo(int novo)
+    {
+        raiz - inserir(raiz, novo);
+    }
+}
+public void exibirEsquerdo(BTreeNo arv)
+{
+    if (arv != null)
+    {
+        exibirEsquerdo(arv.getEsq());
+        Console.WriteLine(arv.getValor());
+    }
+}
+public void exibirDireito(BTreeNo arv)
+{
+    if (arv != null)
+    {
+        exibirDireito(arv.getEsq());
+        Console.WriteLine(arv.getValor());
+    }
+}
+public void ExibirRaiz()
+{
+    Console.WriteLine("Raiz: " + raiz.getValor());
+}
+public void exibirNoEsq()
+{
+    exibirEsquerdo(raiz);
+}
+public void exibirNoDir()
+{
+    exibirDireito(raiz);
+}
+public void ExcluirNo(int item)
+{
+    No aux = raiz, pai = null, filho = raiz, temp;
+    while (aux != null && aux.GetValor() != item)
+    {
+        pai = aux;
+        if (item < aux.GetValor())
+        {
+            aux = aux.GetEsq();
+        }
+        else
+        {
+            aux = aux.GetDir();
+        }
+    }
+
+    if (aux == null)
+    {
+        Console.WriteLine("Valor não encontrado");
+    }
+    else
+    {
+        if (pai == null)
+        {
+            if (aux.GetDir() == null)
+            {
+                raiz = aux.GetEsq();
+            }
+            else if (aux.GetEsq() == null)
+            {
+                raiz = aux.GetDir();
+            }
+            else
+            {
+                for (temp = aux, filho = aux.GetEsq(); filho.GetDir() != null; temp = filho, filho = filho.GetDir())
+                {
+                    if (filho != aux.GetEsq())
+                    {
+                        temp.SetDir(filho.GetEsq());
+                        filho.SetEsq(raiz.GetEsq());
+                    }
+                }
+                raiz = filho;
+            }
+        }
+        else
+        {
+            if (aux.GetDir() == null)
+            {
+                if (pai.GetEsq() == aux)
+                {
+                    pai.SetEsq(aux.GetEsq());
+                }
+                else
+                {
+                    pai.SetDir(aux.GetEsq());
+                }
+            }
+            else if (aux.GetEsq() == null)
+            {
+                if (pai.GetEsq() == aux)
+                {
+                    pai.SetEsq(aux.GetDir());
+                }
+                else
+                {
+                    pai.SetDir(aux.GetDir());
+                }
+            }
+            else
+            {
+                for (temp = aux, filho = aux.GetEsq(); filho.GetDir() != null; temp = filho, filho = filho.GetDir())
+                {
+                    if (filho != aux.GetEsq())
+                    {
+                        temp.SetDir(filho.GetEsq());
+                        filho.SetEsq(raiz.GetEsq());
+                    }
+                }
+                if (pai.GetEsq() == aux)
+                {
+                    pai.SetEsq(filho);
+                }
+                else
+                {
+                    pai.SetDir(filho);
+                }
+            }
+        }
+    }
+}
