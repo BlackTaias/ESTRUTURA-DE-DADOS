@@ -1,1 +1,87 @@
+#LISTAS
+#Revisão para A2
+#Passo 1: Criando uma lista para armazenar os IDs das naves alienigenas
+naves_alienigenas = []
 
+#Passo 2: Adicionando IDs de naves detectadas
+naves_alienigenas.append("NaveAlfa-01")
+naves_alienigenas.append("NaveBeta-05")
+naves_alienigenas.append("NaveGama-12")
+print(f"Naves alíenigenas detectadas: {naves_alienigenas}")
+
+#Passo 3: Acessando o ID da primeira nave detectada
+primeira_nave = naves_alienigenas[0]
+print(f"A primeira nave a chegar foi; {primeira_nave}")
+
+#Passo 4: Modificando o ID de uma nave (correção)
+naves_alienigenas[1] = "NaveBeta-06"
+print(f"Lista de naves atualizadas: {naves_alienigenas}")
+
+#Passo 5: Removendo uma nave que deixou a órbita
+naves_alienigenas.remove("NaveAlfa-01")
+print(f"Naves restantes: {naves_alienigenas}")
+
+#Passo 6: Verificando quantas naves ainda estão presentes
+total_naves = len(naves_alienigenas)
+print(f"Número total de naves na órbita: {total_naves}")
+
+#FILAS
+from collections import deque
+
+#Passo 1: Criando uma fila vazia para as tarefas da expedição
+fila_de_tarefas = deque()
+
+#Passo 2: Adicionando tarefas à fila(enqueue)
+fila_de_tarefas.append("Verificar painéis solares")
+fila_de_tarefas.append("Realizar experimento de gravidade")
+fila_de_tarefas.append("Comunicar com a base terrestre")
+print(f"Fila de tarefas da expedição: {fila_de_tarefas}")
+
+#Passo 3: Executando a próxima tarefa na fila (dequeue)
+proxima_tarefa = fila_de_tarefas.popleft()
+print(f"Próxima tarefa a ser executada: {proxima_tarefa}")
+print(f"Fila de tarefas restante: {fila_de_tarefas}")
+
+#Passo 4: Verificando o tamanho da fila
+total_tarefas_restantes = len(fila_de_tarefas)
+#print(f"Número de tarefas restantes: {total_tarefas_restantes}")
+print("Número de tarefas restntes: ", total_tarefas_restantes)
+
+fila_de_atendimento_alienigena = deque()
+fila_de_atendimento_alienigena.append("Zorg")
+fila_de_atendimento_alienigena.append("Gleepglorp")
+fila_de_atendimento_alienigena.append("Floopy")
+print(f"Fila de atendimento alienígena: {fila_de_atendimento_alienigena}")
+proximo_alienigena = fila_de_atendimento_alienigena.popleft()
+print(f"Atendendo o alienígena: {proximo_alienigena}")
+print(f"Fila de atendimento restante: {fila_de_atendimento_alienigena}")
+
+#PILHAS
+# Passo 1: Criando uma pilha vazia para as amostras coletadas
+pilha_de_amostras = []
+# Passo 2: Adicionando amostras à pilha (push)
+pilha_de_amostras.append("Amostra da Lua Europa")
+pilha_de_amostras.append("Amostra do Anel de Saturno")
+pilha_de_amostras.append("Amostra do Solo de Marte")
+print(f"Pilha de amostras coletadas: {pilha_de_amostras}")
+# Passo 3: Analisando a última amostra coletada (pop)
+ultima_amostra = pilha_de_amostras.pop()
+print(f"Analisando a amostra: {ultima_amostra}")
+print(f"Pilha de amostras restante: {pilha_de_amostras}")
+# Passo 4: Verificando o tamanho da pilha
+total_amostras_restantes = len(pilha_de_amostras)
+print(f"Número de amostras restantes: {total_amostras_restantes}")
+# Passo 5: Verificando se a pilha está vazia
+if not pilha_de_amostras:
+ print("Todas as amostras foram analisadas!")
+else:
+ print("Ainda há amostras para analisar.")
+
+reculos_alienigenas = []
+reculos_alienigenas.append("NaveDelta-02")
+reculos_alienigenas.append("NaveEpsilon-07")
+reculos_alienigenas.append("NaveZeta-11")
+print(f"Recuos alienígenas detectados: {reculos_alienigenas}")
+ultima_nave_recuada = reculos_alienigenas.pop()
+print(f"Monitorando novamente a nave: {ultima_nave_recuada}")
+print(f"Recuos alienígenas ainda a serem monitorados: {reculos_alienigenas}")
